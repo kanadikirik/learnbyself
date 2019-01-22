@@ -1,0 +1,174 @@
+$color-primary: #1094F6;
+$color-red    : #F72848;
+$border-radius: 0.3rem;
+$padding      : 0.5rem 1rem;
+$margin-small : 0.5rem;
+$margin-normal: 1rem;
+$margin-large : 1.5rem;
+$font-size-small : 0.9rem;
+$font-size-normal: 1rem;
+$font-size-large : 1.5rem;
+$font-size-xlarge: 2rem;
+
+@mixin shadow-deep{
+  -webkit-box-shadow: 0px 10px 40px -4px rgba(179,179,179,1);
+  -moz-box-shadow: 0px 10px 40px -4px rgba(179,179,179,1);
+  box-shadow: 0px 10px 40px -4px rgba(179,179,179,1);
+}
+
+@mixin flex($direction, $align, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+button{
+  @include flex(row, center, center);
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  font-size: $font-size-normal;
+  -webkit-tap-highlight-color: rgba(0,0,0,0); // Remove click highlight for safari
+}
+input{
+  border: none;
+  padding: $padding;
+  margin: 0;
+  width: 80%;
+  border-radius: $border-radius;
+  font-size: $font-size-normal;
+}
+p{
+  font-size: $font-size-normal;
+}
+.m-0{
+  margin: 0;
+}
+.mt-0{
+  margin-top: 0;
+}
+.mb-0{
+  margin-bottom: 0;
+}
+.deletion-animation{
+  background-color: $color-red;
+  opacity: 0.5;
+  transform: translateX(-20vw);
+}
+.switch-animation{
+  transform: scale(0, 0) rotate(360deg);
+  opacity: 0;
+}
+.text-primary{
+  color: $color-primary;
+}
+.text-red{
+  color: $color-red;
+}
+.text-small{
+  font-size: $font-size-small;
+}
+.text-normal{
+  font-size: $font-size-normal;
+}
+.text-large{
+  font-size: $font-size-large;
+}
+.text-xlarge{
+  font-size: $font-size-xlarge;
+}
+.bg-red{
+  background-color: $color-red;
+}
+.flex-start{
+  @include flex(row, center, flex-start);
+}
+.flex-between{
+  @include flex(row, center, space-between);
+}
+.icon-ti{
+  font-size: $font-size-xlarge;
+  transition: all 1s;
+}
+.icon-ti-small{
+  font-size: $font-size-large;
+}
+.button-icon-left{
+  margin-right: $margin-small;
+}
+.button-icon-right{
+  margin-left: $margin-small;
+}
+.button-primary{
+  background-color: $color-primary;
+  padding: $padding;
+  border-radius: $border-radius;
+  color: white;
+}
+.App {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header-user{
+  @include flex(column, center, center)
+}
+.user{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-pp{
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1.25rem;
+  margin-right: $margin-small;
+}
+.user-name{
+  margin-right: $margin-normal;
+}
+.notes{
+  padding: $padding;
+  background-color: #F5F5F5;
+  border-radius: $border-radius;
+  margin-top: $margin-large;
+  margin-bottom: $margin-normal;
+  @include shadow-deep();
+}
+.notes-header{
+  @include flex(row, center, space-between);
+}
+.new-note{
+  @include flex(row, center, space-between)
+}
+.note{
+  margin: $margin-normal;
+  transition: all 1s;
+}
+
+
+@media only screen and (max-width: 1300px) {
+  .App{
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .App{
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 720px) {
+  input{
+    width: 90%;
+  }
+  .new-note{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .form-input-button{
+    margin-top: $margin-small;
+  }
+}
+
